@@ -1,3 +1,7 @@
+## Description
+    This is a serverless PWA (Progressive Web Application) created using React and a TDD (Test Driven Development) approach.
+    The App fetches data from the Google Calendar API and allows the users to see, filter and read more about the actual and upcoming events, based on the location they choose.
+
 ## User stories
     1. As a user, I should be able to filter events by city, so that I can see the list of events that take place in that city.
 
@@ -60,4 +64,4 @@
 
     5.1 Show a chart with the number of upcoming events in each city:
 
-        Given the event list has been loaded, when a user wants to see the upcoming events, a chart with the number of events in each city should be displayed.
+        Given the event list has been loaded, when a user wants to see the upcoming events then a chart with the number of events in each city should be displayed.
