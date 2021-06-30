@@ -7,7 +7,6 @@ class NumberOfEvents extends Component {
     }
 
     handleInput = (e) => {
-        
         this.setState({
             displayedEvents: e.target.value
         })

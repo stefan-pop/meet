@@ -40,7 +40,6 @@ class Event extends Component {
                     </div>
                 ) : ''}
 
-
                 <div className="btn-wrapper">
                     <button onClick={this.toggleShowMore}>{this.state.showMore ? 'Show less' : 'Show more'}</button>
                 </div>
