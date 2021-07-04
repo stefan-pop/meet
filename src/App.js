@@ -38,7 +38,7 @@ class App extends Component {
 			if (this.mounted) {
 				this.setState({ 
 					events: locationEvents.slice(0, eventCount),
-					currentLocation: location
+					defaultLocation: location
 				});
 			}
 		});
@@ -63,6 +63,7 @@ class App extends Component {
 				<NumberOfEvents updateEventsLength={(value) => this.updateEventsLength(value)} />
 
 				<EventList events={this.state.events} />
+				<button onClick={() => this.updateEventsLength} >Show</button>
 			</div>
 		);
 	}
