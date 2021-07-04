@@ -16,7 +16,7 @@ class NumberOfEvents extends Component {
     render() {
         return(
             <div className='events-number'>
-                <label htmlFor='events-number-input'>Chose the number of events you want to see</label>
+                <label htmlFor='events-number-input'>Number of events:</label> <br />
                 <input type='number' id='events-number-input' value={this.state.displayedEvents} onChange={(e) => this.handleInput(e)}/> 
             </div>
         )
