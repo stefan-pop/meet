@@ -28,10 +28,6 @@ class CitySearch extends Component {
         }
     }
 
-    handleFocus = () => {
-
-    }
-
     handleItemClicked = (suggestion) => {
         this.setState({
             query: suggestion,
