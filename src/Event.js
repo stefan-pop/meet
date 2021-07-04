@@ -27,7 +27,7 @@ class Event extends Component {
                 </div>
 
                 <div>
-                    <span>{event.summary} | </span>
+                    <span>{event.summary} |</span>
                     <span>{event.location}</span>
                 </div>
 
