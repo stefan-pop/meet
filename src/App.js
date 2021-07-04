@@ -63,7 +63,6 @@ class App extends Component {
 				<NumberOfEvents updateEventsLength={(value) => this.updateEventsLength(value)} />
 
 				<EventList events={this.state.events} />
-				<button onClick={() => this.updateEventsLength} >Show</button>
 			</div>
 		);
 	}
