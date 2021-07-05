@@ -90,6 +90,7 @@ describe('<App /> integration', () => {
        
         await NumberOfEventsWrapper.find("#events-number-input").simulate("change", eventObject);
         
+        AppWrapper.update();
         expect(NumberOfEventsWrapper.state("displayedEvents")).toEqual(1);
         expect(AppWrapper.state("events").length).toBe(1); 
         expect(AppWrapper.find(EventList).prop('events').length).toEqual(1);
