@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class CitySearch extends Component {
     state = {
@@ -31,7 +32,7 @@ class CitySearch extends Component {
     handleItemClicked = (suggestion) => {
         this.setState({
             query: suggestion,
-            showSuggestions: false
+            showSuggestions: undefined
         });
         this.props.updateEvents(suggestion);
     }
@@ -64,3 +65,7 @@ class CitySearch extends Component {
 }
 
 export default CitySearch;
+
+CitySearch.propTypes = {
+    updateEvents: PropTypes.func.isRequired
+}
