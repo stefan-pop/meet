@@ -82,4 +82,18 @@ describe('<App /> integration', () => {
         AppWrapper.unmount();
     });
 
+    test("length of EventList reflects the value of the input in NumberOfEvents", async () => {
+        const AppWrapper = mount(<App />);
+    
+        const eventObject = { target: {value: 1}};
+        const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+       
+        await NumberOfEventsWrapper.find("#events-number-input").simulate("change", eventObject);
+        
+        expect(NumberOfEventsWrapper.state("displayedEvents")).toEqual(1);
+        expect(AppWrapper.state("events").length).toBe(1); 
+        expect(AppWrapper.find(EventList).prop('events').length).toEqual(1);
+
+        AppWrapper.unmount();
+      });
 })
