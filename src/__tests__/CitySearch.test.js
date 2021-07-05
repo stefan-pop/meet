@@ -76,7 +76,22 @@ describe('CitySearch /> component', () => {
             showSuggestions: undefined
         });
         CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
-        expect(CitySearchWrapper.state('showSuggestions')).toBe(false);
+        expect(CitySearchWrapper.state('showSuggestions')).toBe(undefined);
         expect(CitySearchWrapper.find('.suggestions').prop('style')).toEqual({ display: 'none' });
     });
+
+    test('when input is empty, the suggestion list should not be displayed', () => {
+        const eventObject = {target: {value: ''}};
+        CitySearchWrapper.find('.city').simulate('change', eventObject);
+        expect(CitySearchWrapper.state('showSuggestions')).toBe(undefined);
+        expect(CitySearchWrapper.find('.suggestions').prop('style')).toEqual({ display: 'none' });
+
+    });
+
+    test('when input is not empty, the suggestion list should be displayed', () => {
+        const eventObject = {target: {value: 'b'}};
+        CitySearchWrapper.find('.city').simulate('change', eventObject);
+        expect(CitySearchWrapper.state('showSuggestions')).toBe(true);
+        expect(CitySearchWrapper.find('.suggestions').prop('style')).toEqual({});
+    })
 });
