@@ -48,11 +48,11 @@
 
     3.1 When user hasn't specified a number, 32 is the default number:
 
-        Given the event list has been loaded, when a user does not select a speciffic number of events to be displayed then 32 events will be desplayed by default.
+        Given the user has opened the app and the event list has been loaded, when a user does not select a speciffic number of events to be displayed then 32 events will be desplayed by default.
 
     3.2 User can change the number of events they want to see:
 
-        Given the event list has been loaded, when a user select a speciffic number of events to be displayed then that is the number of events to be displayed.
+        Given the user has opened the app and the event list has been loaded, when a user select a speciffic number of events to be displayed then that is the number of events to be displayed.
 
     4.1 Show cached data when there's no internet connection:
 
