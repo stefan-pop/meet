@@ -33,11 +33,19 @@ class NumberOfEvents extends Component {
         }           
     }
 
+    resetInput = (e) => {
+        e.target.value = '';
+    }
+
     render() {
         return(
             <div className='events-number'>
                 <label htmlFor='events-number-input'>Number of events:</label> <br />
-                <input type='number' id='events-number-input' value={this.state.displayedEvents} onChange={(e) => this.handleInput(e)}/> 
+                <input type='number' id='events-number-input' 
+                    value={this.state.displayedEvents} 
+                    onChange={(e) => this.handleInput(e)}
+                    onFocus={(e) => this.resetInput(e)}
+                /> 
                 <ErrorAlert text={this.state.errorText}/>
             </div>
         )
