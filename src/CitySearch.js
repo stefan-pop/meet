@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { InfoAlert } from './Alert';
 
 class CitySearch extends Component {
     state = {
         query: '',
         suggestions: [],
-        showSuggestions: undefined
+        showSuggestions: undefined,
+        infoText: ''
     }
 
     handleInputChanged = (event) => {
@@ -27,12 +29,26 @@ class CitySearch extends Component {
                 showSuggestions: true
             })
         }
+
+        if(suggestions.length === 0) {
+            this.setState({
+                query: value,
+                infoText: "We can't find the city you are looking for. Please try another city"
+            });
+        }else {
+            return this.setState({
+                query: value,
+                suggestions,
+                infoText: ''
+            });
+        }
     }
 
     handleItemClicked = (suggestion) => {
         this.setState({
             query: suggestion,
-            showSuggestions: undefined
+            showSuggestions: undefined,
+            infoText: ''
         });
         this.props.updateEvents(suggestion);
     }
@@ -42,6 +58,7 @@ class CitySearch extends Component {
             <div className="CitySearch">
                 <h1>Meet App</h1>
                 <h3>Choose your nearest city</h3>
+                <InfoAlert text={this.state.infoText} />
                 <div className="suggestion-wrapper">
                     <input 
                         type="text"
