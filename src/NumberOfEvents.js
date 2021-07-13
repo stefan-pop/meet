@@ -12,23 +12,25 @@ class NumberOfEvents extends Component {
     handleInput = (e) => {
         let value = e.target.value;
 
-        if(value === '' || value < 1) {
+        if(value < 1) {
             this.setState({
-                displayedEvents: '',
+                displayedEvents: value,
                 errorText: 'Please enter a number greater than 0'
             })
+            return false;
         }else if (value > 32) {
             this.setState({
-                displayedEvents: '',
+                displayedEvents: value,
                 errorText: 'Please enter a number not greater than 32'
             })
+            return false;
         }else {
             this.setState({
                 displayedEvents: value,
                 errorText: ''
             })
-        }
-        this.props.updateEventsLength(value);         
+            this.props.updateEventsLength(value);
+        }           
     }
 
     render() {
