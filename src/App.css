@@ -36,6 +36,11 @@ ul {
 	width: 100%;
 }
 
+.suggestion-wrapper {
+	padding: 0;
+	margin: 0;
+}
+
 .suggestions {
 	max-width: 300px;
 	width: 100%;
