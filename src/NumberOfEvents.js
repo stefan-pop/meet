@@ -17,10 +17,10 @@ class NumberOfEvents extends Component {
                 displayedEvents: '',
                 errorText: 'Please enter a number greater than 0'
             })
-        }else if (value > 32) {
+        }else if (value > this.props.eventsLength) {
             this.setState({
                 displayedEvents: '',
-                errorText: 'Please enter a number not greater than 32'
+                errorText: `There are only ${this.props.eventsLength} events available`
             })
         }else {
             this.setState({
@@ -35,7 +35,9 @@ class NumberOfEvents extends Component {
         return(
             <div className='events-number'>
                 <label htmlFor='events-number-input'>Number of events:</label> <br />
-                <input type='number' id='events-number-input' value={this.state.displayedEvents} onChange={(e) => this.handleInput(e)}/> 
+                <input type='number' id='events-number-input' 
+                value={this.props.eventsLength < 32 ? this.props.eventsLength : this.state.displayedEvents} 
+                onChange={(e) => this.handleInput(e)}/> 
                 <ErrorAlert text={this.state.errorText}/>
             </div>
         )
