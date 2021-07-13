@@ -10,7 +10,6 @@ import { extractLocations, getEvents } from './api';
 class App extends Component {
 	state = {
 		events: [],
-		eventsLength: undefined,
 		locations: [],
 		displayedEvents: 32,
 		defaultLocation : 'all'
@@ -21,7 +20,6 @@ class App extends Component {
 		getEvents().then((events) => {
 			if (this.mounted) {
 				this.setState({
-					eventsLength: events.length,
 					events: events.slice(0, this.state.displayedEvents),
 					locations: extractLocations(events)
 				});
@@ -62,10 +60,7 @@ class App extends Component {
 					updateEvents={this.updateEvents} 
 				/>
 
-				<NumberOfEvents 
-					updateEventsLength={(value) => this.updateEventsLength(value)}
-					eventsLength={this.state.eventsLength}
-				/>
+				<NumberOfEvents updateEventsLength={(value) => this.updateEventsLength(value)} />
 
 				<EventList events={this.state.events} />
 			</div>
