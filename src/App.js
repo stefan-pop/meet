@@ -5,6 +5,7 @@ import NumberOfEvents from './NumberOfEvents';
 import './App.css';
 import './nprogress.css';
 import { extractLocations, getEvents } from './api';
+import { WarningAlert } from './Alert';
 
 
 class App extends Component {
@@ -12,11 +13,38 @@ class App extends Component {
 		events: [],
 		locations: [],
 		displayedEvents: 32,
-		defaultLocation : 'all'
+		defaultLocation : 'all',
+		warningText: ''
 	}
 
 	componentDidMount() {
 		this.mounted = true;
+
+		//this keeps the alert displayed if the user is offline and refreshes the page.
+		if (!navigator.onLine) {
+			this.setState({
+				warningText: 'You are currently offline. Some features of the app might be limited!'
+			})
+		}
+
+		window.addEventListener('offline', () => {
+			this.setState({
+				warningText: 'You are currently offline. Some features of the app might be limited!'
+			})
+		});
+
+		window.addEventListener('online', () => {
+			this.setState({
+				warningText: 'You are back online!'
+			})
+
+			setTimeout(() => {
+				this.setState({
+					warningText: ''
+				})
+			}, 3000)
+		});
+
 		getEvents().then((events) => {
 			if (this.mounted) {
 				this.setState({
@@ -29,6 +57,24 @@ class App extends Component {
 
 	componentWillUnmount() {
 		this.mounted = false;
+
+		window.removeEventListener('offline', () => {
+			this.setState({
+				warningText: 'You are currently offline. Some features of the app might be limited!'
+			})
+		});
+
+		window.removeEventListener('online', () => {
+			this.setState({
+				warningText: 'You are back online!'
+			})
+
+			setTimeout(() => {
+				this.setState({
+					warningText: ''
+				})
+			}, 3000)
+		});
 	}
 
 	updateEvents = (location, eventCount) => {
@@ -55,6 +101,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<WarningAlert text={this.state.warningText} />
 				<CitySearch
 					locations={this.state.locations} 
 					updateEvents={this.updateEvents} 
