@@ -91,6 +91,11 @@ ul {
 .event-wrapper {
 	border: 2px solid rgba(206, 203, 203, 0.74);
 	overflow: auto;
+	padding: 0 10px 10px 5px;
+}
+
+.event-wrapper > * {
+	margin-bottom: 10px;
 }
 
 .btn-wrapper {
