@@ -7,7 +7,7 @@ function WelcomeScreen(props) {
 
         <div className="WelcomeScreen">
             <div className="content">
-                <h1>Welcome to Meet</h1>
+                <h1>Welcome to Meet App</h1>
                 <br />
                 <h4>
                     Check out upcoming events around the world for
