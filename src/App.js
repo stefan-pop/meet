@@ -7,6 +7,7 @@ import './nprogress.css';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import { WarningAlert } from './Alert';
 import WelcomeScreen from './WelcomeScreen';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 class App extends Component {
@@ -108,6 +109,17 @@ class App extends Component {
 		const { defaultLocation } = this.state
 		this.updateEvents(defaultLocation, inputValue);
 	}
+
+	// Extracting the location and number of events belonging to the location to use them in the chart
+	getData = () => {
+		const { locations, events } = this.state;
+		const data = locations.map((location) => {
+			const number = events.filter((event) => event.location === location).length;
+			const city = location.split(', ').shift();
+			return {city, number};
+		})
+		return data;
+	}
 	
 	render() {
 
@@ -122,6 +134,17 @@ class App extends Component {
 				/>
 
 				<NumberOfEvents updateEventsLength={(value) => this.updateEventsLength(value)} />
+
+				<h3 style={{marginTop: "20px"}}>Events in each city</h3>
+				<ResponsiveContainer height={400}>
+					<ScatterChart margin={{top: 10, right: 20, bottom: 20, left: 20,}}>
+						<CartesianGrid />
+						<XAxis type="category" dataKey="city" name="city" />
+						<YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
+						<Tooltip cursor={{ strokeDasharray: '3 3' }} />
+						<Scatter data={this.getData()} fill="#8884d8" />
+					</ScatterChart>
+				</ResponsiveContainer>
 
 				<EventList events={this.state.events} />
 
