@@ -134,7 +134,10 @@ class App extends Component {
 					updateEvents={this.updateEvents} 
 				/>
 
-				<NumberOfEvents updateEventsLength={(value) => this.updateEventsLength(value)} />
+				<NumberOfEvents 
+					updateEventsLength={(value) => this.updateEventsLength(value)} 
+					displayedEvents={this.state.displayedEvents} 
+				/>
 
 				<div className="data-vis-wrapper">
 				<h3 style={{marginTop: "40px"}}>Events by genre</h3>
