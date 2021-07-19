@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
+import EventGenre from './EventGenre';
 import './App.css';
 import './nprogress.css';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
@@ -136,6 +137,9 @@ class App extends Component {
 				<NumberOfEvents updateEventsLength={(value) => this.updateEventsLength(value)} />
 
 				<div className="data-vis-wrapper">
+				<h3 style={{marginTop: "40px"}}>Events by genre</h3>
+					<EventGenre events={this.state.events} />
+
 					<h3 style={{marginTop: "40px"}}>Events in each city</h3>
 					<ResponsiveContainer height={400}>
 						<ScatterChart margin={{top: 10, right: 10, bottom: 20, left: 20,}}>
