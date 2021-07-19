@@ -5,7 +5,7 @@ import { ErrorAlert } from './Alert';
 class NumberOfEvents extends Component {
 
     state = {
-        displayedEvents: 32,
+        displayedEvents: this.props.displayedEvents,
         errorText: ''
     }
 
