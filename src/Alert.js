@@ -47,10 +47,13 @@ class WarningAlert extends Alert {
         return {
             color: this.color,
             backgroundColor: 'orangered',
-            width: '100%',
+            width: '100vw',
             display: 'block',
-            margin: '0',
-            lineHeight: '2rem'
+            lineHeight: '2rem',
+            position: "fixed",
+            top: '0',
+            left:'0',
+            zIndex:'200'
         };
     }
 

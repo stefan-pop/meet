@@ -123,4 +123,8 @@ ul {
 		width: 100%;
 	}
 
+	.CitySearch > h1 {
+		margin-top: 40px;
+	}	
+
 }
