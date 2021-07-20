@@ -1,6 +1,7 @@
 ## Description
     This is a serverless PWA (Progressive Web Application) created using React and a TDD (Test Driven Development) approach.
-    The App fetches data from the Google Calendar API and allows the users to see, filter and read more about the actual and upcoming events, based on the location they choose.
+    The App fetches data from the Google Calendar API and allows the users to see, filter and read more about the actual and upcoming events, based on the location and the number of events they choose.
+    To make the authentication/authorization process and the routing between frontend and Google Api possible, the apa uses serverless functions hosted by a cloud provider (AWS).
 
 ## User stories
     1. As a user, I should be able to filter events by city, so that I can see the list of events that take place in that city.
@@ -65,3 +66,35 @@
     5.1 Show a chart with the number of upcoming events in each city:
 
         Given the event list has been loaded, when a user wants to see the upcoming events then a chart with the number of events in each city should be displayed.
+
+## Dependencies
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "atatus-spa": "^4.3.2",
+    "axios": "^0.21.1",
+    "nprogress": "^0.2.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "recharts": "^2.0.10",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.4",
+    "workbox-broadcast-update": "^5.1.4",
+    "workbox-cacheable-response": "^5.1.4",
+    "workbox-core": "^5.1.4",
+    "workbox-expiration": "^5.1.4",
+    "workbox-google-analytics": "^5.1.4",
+    "workbox-navigation-preload": "^5.1.4",
+    "workbox-precaching": "^5.1.4",
+    "workbox-range-requests": "^5.1.4",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.4",
+    "workbox-streams": "^5.1.4"
+
+## Testing libraries
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
+    "enzyme": "^3.11.0",
+    "jest-cucumber": "^3.0.1",
+    "puppeteer": "^10.1.0"
