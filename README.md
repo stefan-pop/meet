@@ -1,7 +1,7 @@
 ## Description
-    This is a serverless PWA (Progressive Web Application) created using React and a TDD (Test Driven Development) approach.
-    The App fetches data from the Google Calendar API and allows the users to see, filter and read more about the actual and upcoming events, based on the location and the number of events they choose.
-    To make the authentication/authorization process and the routing between frontend and Google Api possible, the apa uses serverless functions hosted by a cloud provider (AWS).
+* This is a serverless PWA (Progressive Web Application) created using React and a TDD (Test Driven Development) approach.
+* The App fetches data from the Google Calendar API and allows the users to see, filter and read more about the actual and upcoming events, based on the location and the number of events they choose.
+* To make the authentication/authorization process and the routing between frontend and Google Api possible, the apa uses serverless functions hosted by a cloud provider (AWS).
 
 ## User stories
     1. As a user, I should be able to filter events by city, so that I can see the list of events that take place in that city.
